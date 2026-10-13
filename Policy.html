@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Privacy Policy &amp; Terms — Live Teach Pro Studio</title>
+
+  <!-- Google Typography Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       LIVE TEACH — ENTERPRISE PRIVACY & COMPLIANCE STYLESHEET
+       Theme: Clean Orange SaaS / Corporate Legal Standard
+       ========================================================================== */
+    :root {
+      --lt-orange-primary: #f97316;
+      --lt-orange-dark: #ea580c;
+      --lt-orange-light: #fff7ed;
+      --lt-orange-border: #fed7aa;
+      --lt-text-primary: #0f172a;
+      --lt-text-secondary: #475569;
+      --lt-text-muted: #64748b;
+      --lt-border-color: #e2e8f0;
+      --lt-app-bg: #f8fafc;
+      --lt-card-bg: #ffffff;
+      --shadow-card: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(254, 215, 170, 0.4);
+      --radius-card: 20px;
+      --radius-pill: 9999px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background-color: var(--lt-app-bg);
+      color: var(--lt-text-primary);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-mono { font-family: 'Fira Code', monospace !important; }
+
+    /* Top Sticky Header */
+    .policy-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1.5px solid #ffedd5;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      box-shadow: 0 2px 10px rgba(234, 88, 12, 0.04);
+    }
+
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--lt-orange-primary);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    }
+
+    .brand-heading {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand-heading span { color: var(--lt-orange-primary); }
+
+    .header-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link-item {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--lt-text-secondary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .nav-link-item:hover { color: var(--lt-orange-primary); }
+
+    .btn-return-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--lt-orange-light);
+      color: var(--lt-orange-primary);
+      border: 1.5px solid #fdba74;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.18s ease;
+    }
+    .btn-return-home:hover {
+      background: var(--lt-orange-primary);
+      color: #ffffff;
+    }
+
+    /* Main Container Layout */
+    .policy-container {
+      max-width: 920px;
+      margin: 30px auto;
+      padding: 0 20px 60px 20px;
+    }
+
+    .policy-card {
+      background: var(--lt-card-bg);
+      border: 1.5px solid var(--lt-orange-border);
+      border-radius: var(--radius-card);
+      padding: 48px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .policy-title-area {
+      border-bottom: 1.5px solid #ffedd5;
+      padding-bottom: 22px;
+      margin-bottom: 30px;
+    }
+
+    .policy-title-area h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--lt-text-primary);
+      margin-bottom: 8px;
+    }
+
+    .policy-meta-info {
+      font-size: 0.82rem;
+      color: var(--lt-text-muted);
+      font-weight: 600;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Section Divisions */
+    .compliance-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 80px;
+    }
+
+    .compliance-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--lt-orange-dark);
+      border-bottom: 2px solid var(--lt-orange-light);
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .compliance-section h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--lt-text-primary);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .compliance-section p {
+      font-size: 0.94rem;
+      color: var(--lt-text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .compliance-section ul {
+      margin-left: 22px;
+      margin-bottom: 16px;
+    }
+
+    .compliance-section li {
+      font-size: 0.92rem;
+      color: var(--lt-text-secondary);
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+
+    /* Highlight & Action Boxes */
+    .highlight-box {
+      background: var(--lt-orange-light);
+      border: 1.5px solid var(--lt-orange-border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+    .highlight-box p {
+      color: #9a3412;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .deletion-action-box {
+      background: #f8fafc;
+      border: 1.5px solid var(--lt-border-color);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 24px 0;
+      text-align: center;
+    }
+
+    .btn-delete-redirect {
+      display: inline-block;
+      margin-top: 12px;
+      background: #dc2626;
+      color: #ffffff;
+      padding: 11px 26px;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 0.86rem;
+      box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
+      transition: all 0.18s ease;
+    }
+    .btn-delete-redirect:hover {
+      background: #b91c1c;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      .policy-card { padding: 22px; }
+      .policy-title-area h1 { font-size: 1.6rem; }
+      .header-nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Header Bar -->
+  <header class="policy-header">
+    <div class="brand-cluster">
+      <div class="brand-icon-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h1 class="brand-heading">Live <span>Teach</span> Studio</h1>
+    </div>
+
+    <nav class="header-nav-links">
+      <a href="#privacy" class="nav-link-item">Privacy Policy</a>
+      <a href="#terms" class="nav-link-item">Terms &amp; Conditions</a>
+      <a href="#deletion" class="nav-link-item">Data Deletion</a>
+      <a href="#support" class="nav-link-item">Developer Support</a>
+    </nav>
+
+    <a href="index.html" class="btn-return-home">
+      <span>← Back to App</span>
+    </a>
+  </header>
+
+  <!-- Main Corporate Container -->
+  <main class="policy-container">
+    <div class="policy-card">
+      
+      <div class="policy-title-area">
+        <h1>Legal Compliance &amp; Policy Hub</h1>
+        <div class="policy-meta-info">
+          <span>Developer: <strong>Rohit Yadav</strong></span> &bull;
+          <span>Publisher: <strong>HIDE Store</strong></span> &bull;
+          <span>Last Updated: <strong>October 13, 2026</strong></span>
+        </div>
+      </div>
+
+      <!-- ========================================================================
+           SECTION 1: PRIVACY POLICY
+           ======================================================================== -->
+      <section id="privacy" class="compliance-section">
+        <h2>1. Privacy Policy</h2>
+        <p>
+          Welcome to <strong>Live Teach Pro Studio</strong>, an advanced digital education and smart board software suite created and published by <strong>HIDE Store</strong> (Developer: <strong>Rohit Yadav</strong>). This Privacy Policy explains how we gather, utilize, and safeguard your personal information when you access our mobile app and digital services.
+        </p>
+
+        <div class="highlight-box">
+          <p>
+            🛡️ <strong>Absolute Data Protection Guarantee:</strong> Your educational content, lesson plans, slide decks, whiteboard drawings, and session recordings remain entirely private. We never trade, lease, or monetize your professional data with external commercial networks.
+          </p>
+        </div>
+
+        <h3>Information We Collect</h3>
+        <ul>
+          <li><strong>Identity & Profile Data:</strong> We collect your name, email address, and primary teaching specialization when you establish an account to synchronize your cloud workspace.</li>
+          <li><strong>Authentication Tokens:</strong> Secure login credentials and session tokens are logged to protect your active license and enforce our single-device security guard.</li>
+          <li><strong>Teaching Telemetry & Analytics:</strong> To provide accurate usage insights, we track instructional screen time, presentation counts, and recording durations.</li>
+          <li><strong>Local Storage Sandbox:</strong> Presentation packages (`.liveteach`) and lecture video recordings are saved locally inside your device browser sandbox or internal app storage.</li>
+        </ul>
+
+        <h3>Authentication Protocol</h3>
+        <p>
+          Our application implements a streamlined, secure authentication workflow using direct Google Firebase Auth integration. Users authenticate via standard Gmail/Email &amp; Password or 1-Tap Google Sign-In. No complex multi-factor OTP loops are required, ensuring instant, frictionless access for busy educators.
+        </p>
+      </section>
+
+      <!-- ========================================================================
+           SECTION 2: TERMS & CONDITIONS
+           ======================================================================== -->
+      <section id="terms" class="compliance-section">
+        <h2>2. Terms &amp; Conditions</h2>
+        <p>
+          By accessing or utilizing Live Teach Pro Studio, you agree to be legally bound by these Terms of Service. If you do not agree with any clause, please refrain from using the software.
+        </p>
+
+        <h3>Software License &amp; Classroom Fair Use</h3>
+        <ul>
+          <li><strong>Educator Pass:</strong> Live Teach grants verified educators a non-exclusive, non-transferable, revocable license to utilize the smart board canvas, AI math engine, and presentation studio for non-profit and professional teaching environments.</li>
+          <li><strong>Single Device Security:</strong> To prevent illicit credential sharing and protect your subscription pass, active session monitoring is enforced via Firebase. Simultaneous multi-device logins under a single subscriber profile are restricted.</li>
+          <li><strong>Intellectual Property:</strong> All software architecture, UI design frameworks, branding assets, and proprietary rendering engines are the exclusive intellectual property of Rohit Yadav and HIDE Store.</li>
+        </ul>
+
+        <h3>Subscription Tiers &amp; Billing</h3>
+        <p>
+          The platform operates on a freemium model. Free Educator passes include standard canvas features supported by non-intrusive Google AdMob banners. Normal and Pro Studio passes unlock premium 3D biological/physical models, eliminate all advertisements, and provide watermark-free video recordings via verified Google Play Billing and Razorpay gateways.
+        </p>
+      </section>
+
+      <!-- ========================================================================
+           SECTION 3: ACCOUNT & DATA DELETION PROCEDURES
+           ======================================================================== -->
+      <section id="deletion" class="compliance-section">
+        <h2>3. Account &amp; Data Deletion Procedures</h2>
+        <p>
+          In full accordance with Google Play Developer Policies and global privacy standards, you maintain the absolute right to permanently delete your account, authentication records, cloud presentations, and associated subscription telemetry at any moment.
+        </p>
+        <p>
+          You can initiate this process instantly through your app settings under <strong>Account Security &gt; Delete Account</strong>, or utilize our dedicated standalone deletion utility hosted specifically for this purpose.
+        </p>
+
+        <div class="deletion-action-box">
+          <h3 style="margin-top:0; color:#0f172a;">Permanent Account Deletion Portal</h3>
+          <p style="font-size:0.84rem; color:var(--text-secondary); margin-bottom:10px;">
+            Click below to access our secure server-side deletion utility where you can instantly wipe your account and cloud data permanently.
+          </p>
+          <!-- Redirects to the separate delete.html file hosted alongside this file -->
+          <a href="delete.html" class="btn-delete-redirect">
+            Proceed to Account Deletion Page ➔
+          </a>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+           SECTION 4: DEVELOPER SUPPORT & CONTACT
+           ======================================================================== -->
+      <section id="support" class="compliance-section" style="margin-bottom:0;">
+        <h2>4. Developer Support &amp; Contact Details</h2>
+        <p>
+          For technical inquiries, subscription assistance, copyright compliance notices, or general feedback, please contact our dedicated developer support desk:
+        </p>
+        <ul>
+          <li><strong>Lead Developer:</strong> Rohit Yadav</li>
+          <li><strong>Publishing Publisher:</strong> HIDE Store</li>
+          <li><strong>Official Support Email:</strong> <a href="mailto:rohityxyz@gmal.com" style="color: var(--lt-orange-primary); font-weight: 800;">rohityxyz@gmal.com</a></li>
+          <li><strong>Official Web Portal:</strong> <span class="font-mono">https://liveteach-yt.web.app</span></li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 24px; font-size: 0.78rem; color: var(--lt-text-muted);">
+    &copy; 2026 Live Teach Pro Studio. Designed and Developed by Rohit Yadav. Published by HIDE Store. All rights reserved.
+  </footer>
+
+</body>
+</html>
