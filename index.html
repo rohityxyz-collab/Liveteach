@@ -28,6 +28,7 @@
       --lt-card-bg: #ffffff;
       --shadow-card: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(254, 215, 170, 0.4);
       --radius-card: 20px;
+      --radius-tile: 14px;
       --radius-pill: 9999px;
     }
 
@@ -185,7 +186,7 @@
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--lt-text-primary);
-      margin-top: 20px;
+      margin-top: 24px;
       margin-bottom: 8px;
     }
 
@@ -221,6 +222,93 @@
       margin-bottom: 0;
     }
 
+    /* ==========================================================================
+       STYLED APP PERMISSIONS GRID
+       ========================================================================== */
+    .permissions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 20px 0 24px 0;
+    }
+
+    .permission-card {
+      background: #ffffff;
+      border: 1.5px solid var(--lt-border-color);
+      border-radius: var(--radius-tile);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    }
+
+    .permission-card:hover {
+      border-color: var(--lt-orange-primary);
+      box-shadow: 0 6px 18px rgba(234, 88, 12, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .perm-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .perm-icon-orb {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--lt-orange-light);
+      border: 1px solid var(--lt-orange-border);
+      color: var(--lt-orange-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .perm-title-bundle {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .perm-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--lt-text-primary);
+    }
+
+    .perm-manifest-name {
+      font-size: 0.68rem;
+      color: var(--lt-orange-dark);
+      font-weight: 700;
+    }
+
+    .perm-desc {
+      font-size: 0.82rem;
+      color: var(--lt-text-secondary);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .perm-tag-badge {
+      display: inline-block;
+      width: fit-content;
+      font-size: 0.64rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: #f1f5f9;
+      color: var(--lt-text-muted);
+      border: 1px solid #e2e8f0;
+      margin-top: 4px;
+    }
+
     .deletion-action-box {
       background: #f8fafc;
       border: 1.5px solid var(--lt-border-color);
@@ -252,6 +340,7 @@
       .policy-card { padding: 22px; }
       .policy-title-area h1 { font-size: 1.6rem; }
       .header-nav-links { display: none; }
+      .permissions-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -268,6 +357,7 @@
 
     <nav class="header-nav-links">
       <a href="#privacy" class="nav-link-item">Privacy Policy</a>
+      <a href="#permissions" class="nav-link-item">Device Permissions</a>
       <a href="#terms" class="nav-link-item">Terms &amp; Conditions</a>
       <a href="#deletion" class="nav-link-item">Data Deletion</a>
       <a href="#support" class="nav-link-item">Developer Support</a>
@@ -287,12 +377,12 @@
         <div class="policy-meta-info">
           <span>Developer: <strong>Rohit Yadav</strong></span> &bull;
           <span>Publisher: <strong>HIDE Store</strong></span> &bull;
-          <span>Last Updated: <strong>October 13, 2026</strong></span>
+          <span>Last Updated: <strong>October 14, 2026</strong></span>
         </div>
       </div>
 
       <!-- ========================================================================
-           SECTION 1: PRIVACY POLICY
+           SECTION 1: PRIVACY POLICY & APP PERMISSIONS
            ======================================================================== -->
       <section id="privacy" class="compliance-section">
         <h2>1. Privacy Policy</h2>
@@ -308,16 +398,90 @@
 
         <h3>Information We Collect</h3>
         <ul>
-          <li><strong>Identity & Profile Data:</strong> We collect your name, email address, and primary teaching specialization when you establish an account to synchronize your cloud workspace.</li>
-          <li><strong>Authentication Tokens:</strong> Secure login credentials and session tokens are logged to protect your active license and enforce our single-device security guard.</li>
-          <li><strong>Teaching Telemetry & Analytics:</strong> To provide accurate usage insights, we track instructional screen time, presentation counts, and recording durations.</li>
+          <li><strong>Identity &amp; Profile Data:</strong> We collect your name, email address (Gmail), and teaching profile when you register an account to synchronize your educational workspace.</li>
+          <li><strong>Authentication Tokens:</strong> Secure login credentials (email and password) and session tokens are processed securely to verify user identity and protect workspace access.</li>
+          <li><strong>Teaching Telemetry &amp; Analytics:</strong> To provide accurate usage insights, we track instructional screen time, presentation counts, and recording durations within the studio.</li>
           <li><strong>Local Storage Sandbox:</strong> Presentation packages (`.liveteach`) and lecture video recordings are saved locally inside your device browser sandbox or internal app storage.</li>
         </ul>
 
         <h3>Authentication Protocol</h3>
         <p>
-          Our application implements a streamlined, secure authentication workflow using direct Google Firebase Auth integration. Users authenticate via standard Gmail/Email &amp; Password or 1-Tap Google Sign-In. No complex multi-factor OTP loops are required, ensuring instant, frictionless access for busy educators.
+          Our application implements a direct and secure authentication workflow using standard Email/Gmail and Password credentials via Google Firebase Auth. Users register with their email and chosen password, and log in directly using the same email and password. There are no OTPs (One-Time Passwords) or multi-step verification loops required, ensuring instant and straightforward access to teaching tools.
         </p>
+
+        <!-- ====================================================================
+             DEVICE PERMISSIONS & DATA ACCESS (MIC, CAMERA, STORAGE, ADS)
+             ==================================================================== -->
+        <div id="permissions" style="scroll-margin-top: 80px;">
+          <h3>Device Permissions &amp; Data Access</h3>
+          <p>
+            To deliver interactive whiteboard features, voice recording, multimedia lesson creation, and educational ad support, Live Teach Pro Studio requests the following runtime permissions strictly for core functionality:
+          </p>
+
+          <div class="permissions-grid">
+            
+            <!-- 1. Microphone Permission -->
+            <div class="permission-card">
+              <div class="perm-card-header">
+                <div class="perm-icon-orb">🎙️</div>
+                <div class="perm-title-bundle">
+                  <span class="perm-title">Microphone Access</span>
+                  <span class="perm-manifest-name font-mono">RECORD_AUDIO</span>
+                </div>
+              </div>
+              <p class="perm-desc">
+                Used strictly to record the educator's live voice commentary and audio explanations during smart board lectures and video recordings. Audio is processed on-device and never recorded in the background.
+              </p>
+              <span class="perm-tag-badge">Lecture Audio</span>
+            </div>
+
+            <!-- 2. Camera Permission -->
+            <div class="permission-card">
+              <div class="perm-card-header">
+                <div class="perm-icon-orb">📷</div>
+                <div class="perm-title-bundle">
+                  <span class="perm-title">Camera Access</span>
+                  <span class="perm-manifest-name font-mono">CAMERA</span>
+                </div>
+              </div>
+              <p class="perm-desc">
+                Allows teachers to enable an on-screen instructor webcam overlay while teaching on the digital board, and to scan instructional materials or handwritten equations directly onto the canvas.
+              </p>
+              <span class="perm-tag-badge">Teacher Video Overlay</span>
+            </div>
+
+            <!-- 3. Storage Permission -->
+            <div class="permission-card">
+              <div class="perm-card-header">
+                <div class="perm-icon-orb">💾</div>
+                <div class="perm-title-bundle">
+                  <span class="perm-title">Storage &amp; Media Access</span>
+                  <span class="perm-manifest-name font-mono">READ / WRITE STORAGE</span>
+                </div>
+              </div>
+              <p class="perm-desc">
+                Required to export and save lesson slides (`.liveteach`), lecture video files (MP4), and smart board sketches locally, as well as import teaching charts, images, and 3D scientific models onto the board.
+              </p>
+              <span class="perm-tag-badge">Lesson Files &amp; Media</span>
+            </div>
+
+            <!-- 4. Ad Contents & Sponsored Media -->
+            <div class="permission-card">
+              <div class="perm-card-header">
+                <div class="perm-icon-orb">📺</div>
+                <div class="perm-title-bundle">
+                  <span class="perm-title">Ad Content &amp; Media</span>
+                  <span class="perm-manifest-name font-mono">INTERNET / AD_ID</span>
+                </div>
+              </div>
+              <p class="perm-desc">
+                Displays non-intrusive educational advertisements and loads sponsored rewarded video tasks via Google AdMob. This enables educators to unlock studio features freely in full compliance with Google Play ad policies.
+              </p>
+              <span class="perm-tag-badge">Sponsored Tasks &amp; Banners</span>
+            </div>
+
+          </div>
+        </div>
       </section>
 
       <!-- ========================================================================
@@ -331,15 +495,11 @@
 
         <h3>Software License &amp; Classroom Fair Use</h3>
         <ul>
-          <li><strong>Educator Pass:</strong> Live Teach grants verified educators a non-exclusive, non-transferable, revocable license to utilize the smart board canvas, AI math engine, and presentation studio for non-profit and professional teaching environments.</li>
-          <li><strong>Single Device Security:</strong> To prevent illicit credential sharing and protect your subscription pass, active session monitoring is enforced via Firebase. Simultaneous multi-device logins under a single subscriber profile are restricted.</li>
+          <li><strong>Educator License:</strong> Live Teach grants verified educators a non-exclusive, non-transferable, revocable license to utilize the smart board canvas, AI math engine, and presentation studio for non-profit and professional teaching environments.</li>
+          <li><strong>Account Security:</strong> Users are responsible for maintaining the confidentiality of their email and password credentials. Simultaneous session monitoring is enforced to maintain secure workspace integrity.</li>
           <li><strong>Intellectual Property:</strong> All software architecture, UI design frameworks, branding assets, and proprietary rendering engines are the exclusive intellectual property of Rohit Yadav and HIDE Store.</li>
+          <li><strong>Content Ownership:</strong> All teaching materials, notes, drawings, and presentations created by the user remain 100% the property of the respective educator.</li>
         </ul>
-
-        <h3>Subscription Tiers &amp; Billing</h3>
-        <p>
-          The platform operates on a freemium model. Free Educator passes include standard canvas features supported by non-intrusive Google AdMob banners. Normal and Pro Studio passes unlock premium 3D biological/physical models, eliminate all advertisements, and provide watermark-free video recordings via verified Google Play Billing and Razorpay gateways.
-        </p>
       </section>
 
       <!-- ========================================================================
@@ -348,7 +508,7 @@
       <section id="deletion" class="compliance-section">
         <h2>3. Account &amp; Data Deletion Procedures</h2>
         <p>
-          In full accordance with Google Play Developer Policies and global privacy standards, you maintain the absolute right to permanently delete your account, authentication records, cloud presentations, and associated subscription telemetry at any moment.
+          In full accordance with Google Play Developer Policies and global privacy standards, you maintain the absolute right to permanently delete your account, authentication records, cloud presentations, and associated telemetry at any moment.
         </p>
         <p>
           You can initiate this process instantly through your app settings under <strong>Account Security &gt; Delete Account</strong>, or utilize our dedicated standalone deletion utility hosted specifically for this purpose.
@@ -359,7 +519,6 @@
           <p style="font-size:0.84rem; color:var(--text-secondary); margin-bottom:10px;">
             Click below to access our secure server-side deletion utility where you can instantly wipe your account and cloud data permanently.
           </p>
-          <!-- Redirects to the separate delete.html file hosted alongside this file -->
           <a href="delete.html" class="btn-delete-redirect">
             Proceed to Account Deletion Page ➔
           </a>
@@ -372,13 +531,13 @@
       <section id="support" class="compliance-section" style="margin-bottom:0;">
         <h2>4. Developer Support &amp; Contact Details</h2>
         <p>
-          For technical inquiries, subscription assistance, copyright compliance notices, or general feedback, please contact our dedicated developer support desk:
+          For technical inquiries, copyright compliance notices, or general feedback, please contact our dedicated developer support desk:
         </p>
         <ul>
           <li><strong>Lead Developer:</strong> Rohit Yadav</li>
           <li><strong>Publishing Publisher:</strong> HIDE Store</li>
           <li><strong>Official Support Email:</strong> <a href="mailto:rohityxyz@gmal.com" style="color: var(--lt-orange-primary); font-weight: 800;">rohityxyz@gmal.com</a></li>
-          <li><strong>Official Web Portal:</strong> <span class="font-mono">https://liveteach-yt.web.app</span></li>
+          <li><strong>Official Web Portal:</strong> <a href="https://rohityxyz-collab.github.io/Liveteach/" target="_blank" rel="noopener noreferrer" style="color: var(--lt-orange-primary); font-weight: 800;" class="font-mono">https://rohityxyz-collab.github.io/Liveteach/</a></li>
         </ul>
       </section>
 
